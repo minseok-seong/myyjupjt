@@ -1,0 +1,119 @@
+.container {
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
+}
+
+.wrapper {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  z-index: 100;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.img {
+  object-fit: contain;
+  width: 40px;
+  cursor: pointer;
+}
+.language {
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+.community {
+  margin-left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.nav-form {
+  border: 1px solid gainsboro;
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+.form-control {
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  width: 210px;
+}
+.center {
+  flex: 1;
+  text-align: center;
+}
+.right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+}
+.lists {
+  width: 120px;
+  background-color: white;
+  padding: 10px;
+  position: absolute;
+  top: 45px;
+  z-index: 1000000;
+  list-style: none;
+  border: 1px solid gainsboro;
+}
+.list {
+  padding-bottom: 10px;
+}
+.list:hover {
+  background-color: gainsboro;
+}
+.menuItem {
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo {
+  font-size: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+@media (max-width: 380px) {
+  .container {
+    margin-bottom: 20px;
+    position: static;
+  }
+  .center {
+    display: none;
+  }
+  .img {
+    display: none;
+  }
+  .wrapper {
+    flex-direction: column;
+  }
+  .lists {
+    z-index: 10000;
+  }
+}
