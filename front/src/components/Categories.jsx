@@ -34,7 +34,7 @@ const Categories = () => {
   }, []);
 
   const getCatimg = async () => {
-    const res = await axios.get(" http://localhost:5000/api/cat");
+    const res = await axios.get(" http://13.209.10.47:5000/api/cat");
     setimgurl(res.data);
   };
   return (

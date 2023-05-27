@@ -54,7 +54,7 @@ const Post = () => {
     const getPost = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:5000/api/post/detail",
+          "http://13.209.10.47:5000/api/post/detail",
           postNumber
         );
 
@@ -70,7 +70,7 @@ const Post = () => {
     if (window.confirm("정말로 삭제하시겠습니까?")) {
       try {
         const res = await axios.post(
-          "http://localhost:5000/api/post/delete",
+          "http://13.209.10.47:5000/api/post/delete",
           postNumber
         );
 
@@ -92,7 +92,7 @@ const Post = () => {
     };
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/reple/submit",
+        "http://13.209.10.47:5000/api/reple/submit",
         body
       );
       setreple("");

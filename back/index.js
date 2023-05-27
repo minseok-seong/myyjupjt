@@ -15,6 +15,7 @@ const sliderRoute = require("./routes/slider");
 const catRoute = require("./routes/cat");
 
 const cors = require("cors");
+const path = require("path");
 
 dotenv.config();
 
@@ -40,6 +41,13 @@ app.use("/api/slider", sliderRoute);
 app.use("/api/cat", catRoute);
 
 app.use("/image", express.static("./image"));
+
+app.use(express.static(path.join(__dirname, "../front/build")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/build/index.html"));
+  // res.send("gkdl");
+});
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server is running!");

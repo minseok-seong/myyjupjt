@@ -85,11 +85,11 @@ const Login = () => {
       };
 
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "http://13.209.10.47:5000/api/auth/login",
         body
       );
       // const res = await axios.post(
-      //   "http://localhost:5000/api/auth/login",
+      //   "http://13.209.10.47:5000/api/auth/login",
       //   body
       // );
       if (res.data.success) {

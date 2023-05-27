@@ -20,7 +20,7 @@ const SellMessages = () => {
     queryKey: ["conversations"],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/api/conversations/sell/${id}`)
+        .get(`http://13.209.10.47:5000/api/conversations/sell/${id}`)
         .then((res) => {
           return res.data;
         }),

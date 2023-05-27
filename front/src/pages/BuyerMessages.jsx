@@ -19,7 +19,7 @@ const BuyerMessages = () => {
     queryKey: ["conversationss"],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/api/conversations/buy/${id}`)
+        .get(`http://13.209.10.47:5000/api/conversations/buy/${id}`)
         .then((res) => {
           return res.data;
         }),
@@ -38,27 +38,32 @@ const BuyerMessages = () => {
             <div className="title">
               <span>메시지목록</span>
             </div>
+
             <table>
-              <tr>
-                <th>사람</th>
-                <th>메시지</th>
-                <th>시간</th>
-                <th>전송</th>
-              </tr>
-              {data.map((c) => (
-                <tr className="active" key={c.id}>
-                  <td>{c.buyerId}</td>
-                  <td>
-                    <Link to={`/message/${c.id}`} className="link">
-                      {c?.lastMessage?.substring(0, 100)}...
-                    </Link>
-                  </td>
-                  <td>{moment(c.updataAt).fromNow()}</td>
-                  <td>
-                    <button>하하</button>
-                  </td>
+              <thead>
+                <tr>
+                  <th>사람</th>
+                  <th>메시지</th>
+                  <th>시간</th>
+                  <th>전송</th>
                 </tr>
-              ))}
+              </thead>
+              <tbody>
+                {data.map((c) => (
+                  <tr className="active" key={c.id}>
+                    <td>{c.buyerId}</td>
+                    <td>
+                      <Link to={`/message/${c.id}`} className="link">
+                        {c?.lastMessage?.substring(0, 100)}...
+                      </Link>
+                    </td>
+                    <td>{moment(c.updataAt).fromNow()}</td>
+                    <td>
+                      <button>하하</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
         )}

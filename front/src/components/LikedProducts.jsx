@@ -71,7 +71,7 @@ const LikedProducts = () => {
         username: username,
       };
       const res = await axios.post(
-        "http://localhost:5000/api/products/liked",
+        "http://13.209.10.47:5000/api/products/liked",
         body
       );
       //   console.log(...res.data);

@@ -17,13 +17,13 @@ const Message = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
-      axios.get(`http://localhost:5000/api/messages/${id}`).then((res) => {
+      axios.get(`http://13.209.10.47:5000/api/messages/${id}`).then((res) => {
         return res.data;
       }),
   });
   const mutation = useMutation({
     mutationFn: (message) => {
-      return axios.post(`http://localhost:5000/api/messages`, message);
+      return axios.post(`http://13.209.10.47:5000/api/messages`, message);
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["messages"]);
@@ -46,9 +46,9 @@ const Message = () => {
       <Navbar />
       <div className="message">
         <div className="container">
-          <span className="breadcrumbs">
+          {/* <span className="breadcrumbs">
             <Link to="/messages">메시지</Link>
-          </span>
+          </span> */}
           {isLoading ? (
             "loading"
           ) : error ? (

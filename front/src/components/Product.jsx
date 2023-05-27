@@ -84,7 +84,7 @@ const Product = ({ item, no }) => {
         _id: item._id,
       };
       const res = await axios.post(
-        " http://localhost:5000/api/users/addlikers",
+        " http://13.209.10.47:5000/api/users/addlikers",
         body
       );
       if (res.data.success) {
@@ -103,7 +103,7 @@ const Product = ({ item, no }) => {
         _id: item._id,
       };
       const res = await axios.post(
-        " http://localhost:5000/api/users/removelikers",
+        " http://13.209.10.47:5000/api/users/removelikers",
         body
       );
       if (res.data.success) {
@@ -119,7 +119,7 @@ const Product = ({ item, no }) => {
     <Container>
       <Circle />
 
-      <Image src={`http://localhost:5000/${item.img}`} />
+      <Image src={`http://13.209.10.47:5000/${item.img}`} />
       {no ? null : (
         <Info>
           <Icon>
