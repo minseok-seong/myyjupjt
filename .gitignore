@@ -1,4 +1,4 @@
 node_modules/
 .env
 market.pem
-/front/build
+# /front/build
