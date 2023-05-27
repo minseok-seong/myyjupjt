@@ -69,7 +69,7 @@ const MyProducts = () => {
     };
     try {
       const res = await axios.post(
-        "http://13.209.10.47:5000/api/products/myProducts",
+        "http://13.124.237.66:5000/api/products/myProducts",
         body
       );
       //   console.log(res.data);

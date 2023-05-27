@@ -17,13 +17,13 @@ const Message = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
-      axios.get(`http://13.209.10.47:5000/api/messages/${id}`).then((res) => {
+      axios.get(`http://13.124.237.66:5000/api/messages/${id}`).then((res) => {
         return res.data;
       }),
   });
   const mutation = useMutation({
     mutationFn: (message) => {
-      return axios.post(`http://13.209.10.47:5000/api/messages`, message);
+      return axios.post(`http://13.124.237.66:5000/api/messages`, message);
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["messages"]);

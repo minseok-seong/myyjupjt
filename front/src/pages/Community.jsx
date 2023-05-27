@@ -74,7 +74,7 @@ const Community = () => {
     };
     try {
       const res = await axios.post(
-        "http://13.209.10.47:5000/api/post/list",
+        "http://13.124.237.66:5000/api/post/list",
         body
       );
       setpostList([...res.data.postList]);

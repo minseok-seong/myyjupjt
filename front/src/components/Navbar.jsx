@@ -99,7 +99,7 @@ const Navbar = () => {
               {user.userimg ? (
                 <img
                   style={{ width: "50px", height: "50px", borderRadius: "50%" }}
-                  src={`http://13.209.10.47:5000/${user.userimg}`}
+                  src={`http://13.124.237.66:5000/${user.userimg}`}
                   ref={refimg}
                   onClick={() => setisopen(!isopen)}
                 />

@@ -139,13 +139,13 @@ const Product = () => {
 
     try {
       const res = await axios.get(
-        `http://13.209.10.47:5000/api/conversations/single/${id}`
+        `http://13.124.237.66:5000/api/conversations/single/${id}`
       );
       navigate(`/message/${res.data.id}`);
     } catch (err) {
       if (err.response.status === 404) {
         const res = await axios.post(
-          `http://13.209.10.47:5000/api/conversations/`,
+          `http://13.124.237.66:5000/api/conversations/`,
           {
             id: id,
             sellerId: sellerId,
@@ -160,7 +160,7 @@ const Product = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `http://13.209.10.47:5000/api/products/find/${id}`
+          `http://13.124.237.66:5000/api/products/find/${id}`
         );
         setproduct(res.data);
       } catch (err) {}
@@ -186,7 +186,7 @@ const Product = () => {
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src={`http://13.209.10.47:5000/${product.img}`} />
+          <Image src={`http://13.124.237.66:5000/${product.img}`} />
         </ImgContainer>
         <InfoContainer>
           <div

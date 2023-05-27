@@ -55,7 +55,7 @@ export const Edit = () => {
     const getPost = async () => {
       try {
         const res = await axios.post(
-          "http://13.209.10.47:5000/api/post/detail",
+          "http://13.124.237.66:5000/api/post/detail",
           postNumber
         );
 
@@ -83,7 +83,7 @@ export const Edit = () => {
     const content = { title: title, desc: desc, postNumber, image: image }; //포스트넘버 보내는 이유는 어떤 포스트를 업데이트 해야할지 알려주려고
     try {
       const res = await axios.post(
-        "http://13.209.10.47:5000/api/post/edit",
+        "http://13.124.237.66:5000/api/post/edit",
         content
       );
       if (res.data.success) {
@@ -102,7 +102,7 @@ export const Edit = () => {
       const formData = new FormData();
       formData.append("file", e.target.files[0]);
       const res = await axios.post(
-        "http://13.209.10.47:5000/api/post/image/upload",
+        "http://13.124.237.66:5000/api/post/image/upload",
         formData
       );
       setimage(res.data.filePath);
