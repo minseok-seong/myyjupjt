@@ -39,7 +39,7 @@ app.use("/api/conversations", conversationRoute);
 app.use("/api/messages", messageRoute);
 app.use("/api/slider", sliderRoute);
 app.use("/api/cat", catRoute);
-app.use(express.static("public", { "Content-Type": "application/javascript" }));
+// app.use(express.static("public", { "Content-Type": "application/javascript" }));
 
 app.use("/image", express.static("./image"));
 
