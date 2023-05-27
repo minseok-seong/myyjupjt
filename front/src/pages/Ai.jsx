@@ -12,7 +12,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Button } from "@mui/material";
 
-const key = "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";
 const systemMessage = {
   role: "system",
   content:
@@ -72,7 +71,7 @@ function App() {
     await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: "Bearer " + key,
+        Authorization: "Bearer " + process.env.AI_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(apiRequestBody),
