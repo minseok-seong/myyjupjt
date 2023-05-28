@@ -71,8 +71,7 @@ function App() {
     await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization:
-          "Bearer " + "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",
+        Authorization: "Bearer " + process.env.REACT_APP_AI_KEY,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(apiRequestBody),
