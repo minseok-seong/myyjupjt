@@ -1,6 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -32,12 +32,19 @@ const ProductUpload = () => {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (!user?.uId) {
+      navigate("/");
+      alert("로그인 해주세요");
+    }
+  }, []);
+
   const fileUpload = async (e) => {
     try {
       const formData = new FormData();
       formData.append("file", e.target.files[0]);
       const res = await axios.post(
-        "http://13.124.237.66:5000/api/products/image/upload",
+        "http://localhost:5000/api/products/image/upload",
         formData
       );
       setimgsrc(res.data.filePath);
@@ -59,7 +66,7 @@ const ProductUpload = () => {
         userNum: user.userNum,
       };
       const res = await axios.post(
-        "http://13.124.237.66:5000/api/products/submit",
+        "http://localhost:5000/api/products/submit",
         body
       );
       if (res.data.success) {
@@ -90,7 +97,7 @@ const ProductUpload = () => {
         />
 
         <Input type="file" onChange={fileUpload} />
-        <Image src={`http://13.124.237.66:5000/${imgsrc}`} />
+        <Image src={`http://localhost:5000/${imgsrc}`} />
 
         <TextField
           style={{ marginTop: 20 }}

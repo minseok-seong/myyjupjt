@@ -54,7 +54,7 @@ const Post = () => {
     const getPost = async () => {
       try {
         const res = await axios.post(
-          "http://13.124.237.66:5000/api/post/detail",
+          "http://localhost:5000/api/post/detail",
           postNumber
         );
 
@@ -70,7 +70,7 @@ const Post = () => {
     if (window.confirm("정말로 삭제하시겠습니까?")) {
       try {
         const res = await axios.post(
-          "http://13.124.237.66:5000/api/post/delete",
+          "http://localhost:5000/api/post/delete",
           postNumber
         );
 
@@ -92,7 +92,7 @@ const Post = () => {
     };
     try {
       const res = await axios.post(
-        "http://13.124.237.66:5000/api/reple/submit",
+        "http://localhost:5000/api/reple/submit",
         body
       );
       setreple("");
@@ -110,20 +110,24 @@ const Post = () => {
       <Navbar />
       <PostDetail post={post} />
 
-      <ButtonDiv>
-        <Link to={`/edit/${post.pNum}`}>
-          <Edit>수정</Edit>
-        </Link>
-        <Delete onClick={handleDelete}>삭제</Delete>
-      </ButtonDiv>
-      <InputDiv>
-        <Input
-          placeholder="댓글을 입력하세요"
-          value={reple}
-          onChange={(e) => setreple(e.target.value)}
-        />
-        <Button onClick={repleSubmit}>등록</Button>
-      </InputDiv>
+      {user?.uId ? (
+        <>
+          <ButtonDiv>
+            <Link to={`/edit/${post.pNum}`}>
+              <Edit>수정</Edit>
+            </Link>
+            <Delete onClick={handleDelete}>삭제</Delete>
+          </ButtonDiv>
+          <InputDiv>
+            <Input
+              placeholder="댓글을 입력하세요"
+              value={reple}
+              onChange={(e) => setreple(e.target.value)}
+            />
+            <Button onClick={repleSubmit}>등록</Button>
+          </InputDiv>
+        </>
+      ) : null}
       <Comments post={post} />
     </>
   );

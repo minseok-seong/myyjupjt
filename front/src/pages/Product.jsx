@@ -138,14 +138,18 @@ const Product = () => {
     const id = sellerId + buyerId;
 
     try {
+      if (!user?.uId) {
+        alert("로그인해주세요");
+        return;
+      }
       const res = await axios.get(
-        `http://13.124.237.66:5000/api/conversations/single/${id}`
+        `http://localhost:5000/api/conversations/single/${id}`
       );
       navigate(`/message/${res.data.id}`);
     } catch (err) {
       if (err.response.status === 404) {
         const res = await axios.post(
-          `http://13.124.237.66:5000/api/conversations/`,
+          `http://localhost:5000/api/conversations/`,
           {
             id: id,
             sellerId: sellerId,
@@ -160,7 +164,7 @@ const Product = () => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
-          `http://13.124.237.66:5000/api/products/find/${id}`
+          `http://localhost:5000/api/products/find/${id}`
         );
         setproduct(res.data);
       } catch (err) {}
@@ -177,6 +181,10 @@ const Product = () => {
   };
 
   const handleClick = () => {
+    if (!user?.uId) {
+      alert("로그인해주세요");
+      return;
+    }
     dispatch(addProduct({ ...product, quantity, color, size }));
   };
 
@@ -186,7 +194,7 @@ const Product = () => {
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src={`http://13.124.237.66:5000/${product.img}`} />
+          <Image src={`http://localhost:5000/${product.img}`} />
         </ImgContainer>
         <InfoContainer>
           <div
@@ -198,13 +206,17 @@ const Product = () => {
           >
             <Avatar>{product.author?.username}</Avatar>
             <User>{`판매자 : ${product.author?.username}`}</User>
-            <IconButton
-              onClick={handleContact}
-              aria-label="add to shopping cart"
-              style={{ color: "green" }}
-            >
-              <Chat style={{ marginRight: "5px" }} /> 문의
-            </IconButton>
+            {product.author?._id === user.uId ? (
+              ""
+            ) : (
+              <IconButton
+                onClick={handleContact}
+                aria-label="add to shopping cart"
+                style={{ color: "green" }}
+              >
+                <Chat style={{ marginRight: "5px" }} /> 문의
+              </IconButton>
+            )}
           </div>
 
           <Title>{product.title}</Title>

@@ -9,6 +9,7 @@ import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import { useNavigate } from "react-router-dom";
 import { Button, Fab } from "@mui/material";
 import { height } from "@mui/system";
+import { useSelector } from "react-redux";
 
 const UploadDiv = styled.div`
   max-width: 756px;
@@ -59,6 +60,7 @@ const Community = () => {
   const [more, setmore] = useState(0);
   const navigate = useNavigate();
   const [usemore, setusemore] = useState("true");
+  const user = useSelector((state) => state.user);
 
   const handlesort = (e) => {
     setsort(e.target.value);
@@ -73,10 +75,7 @@ const Community = () => {
       // more: more,
     };
     try {
-      const res = await axios.post(
-        "http://13.124.237.66:5000/api/post/list",
-        body
-      );
+      const res = await axios.post("http://localhost:5000/api/post/list", body);
       setpostList([...res.data.postList]);
       // setmore(more + res.data.postList.length);
     } catch (e) {
@@ -91,12 +90,18 @@ const Community = () => {
     <>
       <Announcement />
       <Navbar />
-      <UploadDiv onClick={() => navigate("/upload")}>
-        게시글쓰기
-        <Fab color="secondary" aria-label="edit" style={{ marginLeft: "10px" }}>
-          <Edit />
-        </Fab>
-      </UploadDiv>
+      {user?.uId ? (
+        <UploadDiv onClick={() => navigate("/upload")}>
+          게시글쓰기
+          <Fab
+            color="secondary"
+            aria-label="edit"
+            style={{ marginLeft: "10px" }}
+          >
+            <Edit />
+          </Fab>
+        </UploadDiv>
+      ) : null}
       9
       <SearchDiv>
         <InputDiv>

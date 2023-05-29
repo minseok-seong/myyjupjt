@@ -75,16 +75,20 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item, no }) => {
-  const { username } = useSelector((state) => state.user);
+  const { username, uId } = useSelector((state) => state.user);
   console.log(item);
   const handlelikers = async () => {
+    if (!uId) {
+      alert("로그인해 주세요");
+      return;
+    }
     try {
       const body = {
         username: username,
         _id: item._id,
       };
       const res = await axios.post(
-        " http://13.124.237.66:5000/api/users/addlikers",
+        " http://localhost:5000/api/users/addlikers",
         body
       );
       if (res.data.success) {
@@ -97,13 +101,17 @@ const Product = ({ item, no }) => {
     }
   };
   const removeLikers = async () => {
+    if (!uId) {
+      alert("로그인해 주세요");
+      return;
+    }
     try {
       const body = {
         username: username,
         _id: item._id,
       };
       const res = await axios.post(
-        " http://13.124.237.66:5000/api/users/removelikers",
+        " http://localhost:5000/api/users/removelikers",
         body
       );
       if (res.data.success) {
@@ -119,7 +127,7 @@ const Product = ({ item, no }) => {
     <Container>
       <Circle />
 
-      <Image src={`http://13.124.237.66:5000/${item.img}`} />
+      <Image src={`http://localhost:5000/${item.img}`} />
       {no ? null : (
         <Info>
           <Icon>
