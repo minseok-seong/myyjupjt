@@ -13,12 +13,13 @@ const Container = styled.div``;
 
 const Title = styled.h1`
   margin: 20px;
+  ${mobile({ marginTop: "50px" })}
 `;
 
 const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  ${mobile({ flexDirection: "column", alignItem: "center" })}
+  ${mobile({ alignItem: "center" })}
 `;
 
 const Filter = styled.div`

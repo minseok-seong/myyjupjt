@@ -99,7 +99,7 @@
   padding: 5px;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 610px) {
   .container {
     margin-bottom: 20px;
     position: static;

@@ -2,6 +2,7 @@ import { Search } from "@mui/icons-material";
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { mobile } from "./responsive";
 
 const SearchText = () => {
   const [cat, setcat] = useState("");
@@ -34,6 +35,7 @@ const Container = styled.div`
   &:hover {
     background: #e9f5f5;
   }
+  ${mobile({ maxWidth: "312px" })}
 `;
 const Form = styled.form`
   display: flex;

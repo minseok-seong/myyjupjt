@@ -17,7 +17,7 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
-  ${mobile({ flexDirection: "column" })}
+  ${mobile({ flexDirection: "column", gap: "20px" })}
 `;
 
 const ImgContainer = styled.div`
@@ -34,10 +34,17 @@ const Image = styled.img`
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
+  ${mobile({
+    border: "1px solid gainsboro",
+    display: "flex",
+    flexDirection: "column",
+    padding: "15px",
+  })}
 `;
 
 const Title = styled.h1`
   font-weight: 200;
+  ${mobile({ fontSize: "15px" })}
 `;
 
 const Desc = styled.p`
@@ -87,6 +94,7 @@ const AddContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  ${mobile({ marginTop: "1px" })}
 `;
 
 const AmountContainer = styled.div`
@@ -119,6 +127,7 @@ const Button = styled.button`
 const User = styled.h3`
   margin-left: 20px;
   margin-right: 20px;
+  ${mobile({ fontSize: "16px" })}
 `;
 
 const Product = () => {

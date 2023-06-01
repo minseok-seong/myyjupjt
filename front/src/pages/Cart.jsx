@@ -47,10 +47,12 @@ const TopText = styled.span`
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Info = styled.div`
   flex: 3;
+  ${mobile({ display: "flex", flexDirection: "column" })}
 `;
 
 const Product = styled.div`
@@ -62,6 +64,9 @@ const Product = styled.div`
 const ProductDetail = styled.div`
   flex: 2;
   display: flex;
+  ${mobile({
+    flexDirection: "column",
+  })}
 `;
 
 const Image = styled.img`
@@ -101,6 +106,7 @@ const ProductAmountContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  ${mobile({ display: "none" })}
 `;
 
 const ProductAmount = styled.div`
