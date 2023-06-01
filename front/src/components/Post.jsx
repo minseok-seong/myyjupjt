@@ -51,7 +51,7 @@ const Post = ({ post }) => {
       <UserInfo>
         <User>
           {user.userimg ? (
-            <Img src={`http://localhost:5000/${user.userimg}`} alt="" />
+            <Img src={`http://13.124.237.66:5000/${user.userimg}`} alt="" />
           ) : null}
 
           <Name>{post.author.username}</Name>

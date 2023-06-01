@@ -28,7 +28,7 @@ const Slider = () => {
   }, []);
 
   const getSlideimg = async () => {
-    const res = await axios.get(" http://localhost:5000/api/slider");
+    const res = await axios.get(" http://13.124.237.66:5000/api/slider");
     setimgurl(res.data);
   };
 

@@ -53,7 +53,7 @@ const PostDetail = ({ post }) => {
         <UserInfo>
           <div style={{ display: "flex", alignItems: "center" }}>
             {user.userimg ? (
-              <Img src={`http://localhost:5000/${user.userimg}`} alt="" />
+              <Img src={`http://13.124.237.66:5000/${user.userimg}`} alt="" />
             ) : null}
             {post.author && <Name>{post.author.username}</Name>}
           </div>
@@ -62,7 +62,7 @@ const PostDetail = ({ post }) => {
         </UserInfo>
         <ImgDiv>
           {post.image ? (
-            <Image src={`http://localhost:5000/${post.image}`} alt="" />
+            <Image src={`http://13.124.237.66:5000/${post.image}`} alt="" />
           ) : null}
         </ImgDiv>
         <Desc>{post.content}</Desc>

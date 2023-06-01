@@ -62,7 +62,7 @@ const Upload = () => {
     };
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/post/submit",
+        "http://13.124.237.66:5000/api/post/submit",
         content
       );
       if (res.data.success) {
@@ -81,7 +81,7 @@ const Upload = () => {
       const formData = new FormData();
       formData.append("file", e.target.files[0]);
       const res = await axios.post(
-        "http://localhost:5000/api/post/image/upload",
+        "http://13.124.237.66:5000/api/post/image/upload",
         formData
       );
       setimage(res.data.filePath);

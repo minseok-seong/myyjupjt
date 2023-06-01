@@ -73,7 +73,7 @@ const Register = () => {
         password: password,
       };
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "http://13.124.237.66:5000/api/auth/register",
         body
       );
       if (res.data.success) {

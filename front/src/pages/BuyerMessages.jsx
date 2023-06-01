@@ -19,7 +19,7 @@ const BuyerMessages = () => {
     queryKey: ["conversationss"],
     queryFn: () =>
       axios
-        .get(`http://localhost:5000/api/conversations/buy/${id}`)
+        .get(`http://13.124.237.66:5000/api/conversations/buy/${id}`)
         .then((res) => {
           return res.data;
         }),

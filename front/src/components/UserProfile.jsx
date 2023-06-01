@@ -32,7 +32,7 @@ const UserProfile = () => {
       const formData = new FormData();
       formData.append("file", e.target.files[0]);
       const res = await axios.post(
-        "http://localhost:5000/api/users/image/upload",
+        "http://13.124.237.66:5000/api/users/image/upload",
         formData
       );
       setuserimg(res.data.filePath);
@@ -44,7 +44,7 @@ const UserProfile = () => {
       userimg: userimg,
     };
     const res = await axios.post(
-      "http://localhost:5000/api/users/set/image",
+      "http://13.124.237.66:5000/api/users/set/image",
       body
     );
     if (res.data.success) {
@@ -71,7 +71,7 @@ const UserProfile = () => {
         </UserImg>
         <UserInfo>
           <img
-            src={`http://localhost:5000/${userimg}`}
+            src={`http://13.124.237.66:5000/${userimg}`}
             style={{ height: "100%" }}
           />
         </UserInfo>
