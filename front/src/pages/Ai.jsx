@@ -67,6 +67,7 @@ function App() {
       model: "gpt-3.5-turbo",
       messages: [systemMessage, ...apiMessages],
     };
+    // process.env.REACT_APP_AI_KEY
 
     await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
