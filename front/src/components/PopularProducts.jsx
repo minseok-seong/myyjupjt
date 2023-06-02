@@ -31,8 +31,8 @@ const PopularProducts = () => {
 
   const getPopularProducts = async () => {
     try {
-      const res = await axios.get("http://13.124.237.66:5000/api/products");
-      // const res = await axios.get("http://13.124.237.66:5000/api/products");
+      const res = await axios.get("http://localhost:5000/api/products");
+      // const res = await axios.get("http://localhost:5000/api/products");
       setproducts(res.data);
     } catch (e) {}
   };

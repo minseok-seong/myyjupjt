@@ -28,7 +28,7 @@ const Comments = ({ post }) => {
     const getReple = async () => {
       try {
         const res = await axios.post(
-          "http://13.124.237.66:5000/api/reple/getReple",
+          "http://localhost:5000/api/reple/getReple",
           content
         );
 

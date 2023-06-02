@@ -184,7 +184,7 @@ const Cart = () => {
             {cart.products.map((product) => (
               <Product>
                 <ProductDetail>
-                  <Image src={`http://13.124.237.66:5000/${product.img}`} />
+                  <Image src={`http://localhost:5000/${product.img}`} />
                   <Details>
                     <ProductName>
                       <b>상품명:</b> {product.title}

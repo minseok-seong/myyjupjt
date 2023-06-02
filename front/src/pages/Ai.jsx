@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Button } from "@mui/material";
 
+const apikey = "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";
 const systemMessage = {
   role: "system",
   content:
@@ -72,7 +73,7 @@ function App() {
     await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: "Bearer " + process.env.REACT_APP_AI_KEY,
+        Authorization: "Bearer " + apikey,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(apiRequestBody),

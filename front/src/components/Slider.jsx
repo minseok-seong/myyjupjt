@@ -23,12 +23,14 @@ const Slider = () => {
   const [slideIndex, setslideIndex] = useState(0);
   const [imgurl, setimgurl] = useState([]);
 
+  const imgages = ["img1.svg", "img2.svg", "img3.svg"];
+
   useEffect(() => {
     getSlideimg();
   }, []);
 
   const getSlideimg = async () => {
-    const res = await axios.get(" http://13.124.237.66:5000/api/slider");
+    const res = await axios.get(" http://localhost:5000/api/slider");
     setimgurl(res.data);
   };
 
@@ -57,10 +59,10 @@ const Slider = () => {
         <ArrowLeftOutlined />
       </div>
       <Wrapper slideIndex={slideIndex}>
-        {imgurl.map((item) => (
-          <Slide key={item._id}>
+        {imgages.map((item, index) => (
+          <Slide key={index}>
             <div className="imgContainer">
-              <img src={item.url} alt="" />
+              <img src={`/images/${item}`} alt="" />
             </div>
           </Slide>
         ))}
