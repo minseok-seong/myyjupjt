@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Alert, Button, TextField } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Navbar from "../components/Navbar";
+import swal from "sweetalert";
 
 const Container = styled.div`
   max-width: 1200px;
@@ -34,8 +35,8 @@ const ProductUpload = () => {
 
   useEffect(() => {
     if (!user?.uId) {
-      navigate("/");
-      alert("로그인 해주세요");
+      swal("로그인이 안됐네요.. ", "로그인 부탁드려요", "error");
+      navigate("/login");
     }
   }, []);
 

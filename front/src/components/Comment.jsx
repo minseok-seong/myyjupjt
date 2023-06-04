@@ -1,3 +1,4 @@
+import { Avatar } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
@@ -12,6 +13,7 @@ const Container = styled.div`
 const UserDiv = styled.div`
   display: flex;
   margin-bottom: 10px;
+  align-items: center;
 `;
 const Image = styled.img``;
 const Name = styled.span`
@@ -23,7 +25,7 @@ const Comment = ({ comment }) => {
   return (
     <Container>
       <UserDiv>
-        <Image src="#" />
+        <Avatar src="#" />
         <Name>{comment.author.username}</Name>
       </UserDiv>
       <Time>{comment.time}</Time>

@@ -4,11 +4,12 @@ import styled from "styled-components";
 import { posts } from "../data";
 import moment from "moment";
 import "moment/locale/ko";
+import { Avatar } from "@mui/material";
 
 const Container = styled.div`
   max-width: 756px;
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 30px;
   border: 1px solid gainsboro;
   margin-bottom: 10px;
 `;
@@ -32,6 +33,7 @@ const Img = styled.img`
 `;
 const Name = styled.div`
   margin-right: 5px;
+  margin-left: 10px;
 `;
 const Time = styled.div``;
 const ImgDiv = styled.div`
@@ -52,9 +54,10 @@ const PostDetail = ({ post }) => {
         <Title>{post.title}</Title>
         <UserInfo>
           <div style={{ display: "flex", alignItems: "center" }}>
-            {user.userimg ? (
+            {/* {user.userimg ? (
               <Img src={`http://localhost:5000/${user.userimg}`} alt="" />
-            ) : null}
+            ) : null} */}
+            <Avatar />
             {post.author && <Name>{post.author.username}</Name>}
           </div>
 

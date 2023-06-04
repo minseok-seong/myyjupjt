@@ -5,7 +5,7 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@mui/icons-material";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,6 +13,8 @@ import { addProduct } from "../redux/cartRedux";
 import axios from "axios";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 import { mobile } from "./responsive";
+import swal from "sweetalert";
+
 const Info = styled.div`
   position: absolute;
   top: 0;
@@ -75,11 +77,17 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item, no }) => {
+  const [isAddLiker, setisAddLiker] = useState(false);
   const { username, uId } = useSelector((state) => state.user);
   console.log(item);
+
   const handlelikers = async () => {
     if (!uId) {
-      alert("로그인해 주세요");
+      swal("로그인이 안됬네요", "로그인 부탁드립니다", "error");
+      return;
+    }
+    if (isAddLiker === true) {
+      swal("이미 좋아요에 추가했답니다", "", "error");
       return;
     }
     try {
@@ -92,9 +100,10 @@ const Product = ({ item, no }) => {
         body
       );
       if (res.data.success) {
-        alert("상품찜 완료");
+        swal("상품찜 완료", "성공", "success");
+        setisAddLiker(true);
       } else {
-        alert("상품찜 실패");
+        swal("상품찜 실패");
       }
     } catch (e) {
       console.log(e);
@@ -102,7 +111,11 @@ const Product = ({ item, no }) => {
   };
   const removeLikers = async () => {
     if (!uId) {
-      alert("로그인해 주세요");
+      swal("로그인이 안됬네요", "로그인 부탁드립니다", "error");
+      return;
+    }
+    if (isAddLiker === false) {
+      swal("아직 좋아요에 추가하지 않았어요", "", "error");
       return;
     }
     try {
@@ -115,9 +128,10 @@ const Product = ({ item, no }) => {
         body
       );
       if (res.data.success) {
-        alert("찜한상품삭제");
+        swal("상품찜 삭제", "삭제", "success");
+        setisAddLiker(false);
       } else {
-        alert("찜한상품삭제실패");
+        swal("찜한상품삭제실패");
       }
     } catch (e) {
       console.log(e);

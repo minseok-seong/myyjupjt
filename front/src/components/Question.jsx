@@ -2,6 +2,7 @@ import { Button, TextField } from "@mui/material";
 import React, { useRef } from "react";
 import styled from "styled-components";
 import emailjs from "@emailjs/browser";
+import swal from "sweetalert";
 
 const Container = styled.div`
   width: 300px;
@@ -40,7 +41,7 @@ const Title = styled.div`
 const Question = ({ handleX }) => {
   const form = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
     emailjs
@@ -52,10 +53,10 @@ const Question = ({ handleX }) => {
       )
       .then(
         (result) => {
-          alert("전송되었습니다.");
+          swal("전송되었습니다.");
         },
         (error) => {
-          alert("실패.");
+          swal("실패.");
         }
       );
   };

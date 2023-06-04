@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import moment from "moment";
 import "moment/locale/ko";
+import { Avatar } from "@mui/material";
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -30,6 +31,7 @@ const UserInfo = styled.div`
 const User = styled.div`
   display: flex;
   align-items: center;
+  padding: 20px;
 `;
 const Img = styled.img`
   width: 70px;
@@ -37,7 +39,9 @@ const Img = styled.img`
   border-radius: 50%;
   margin-right: 10px;
 `;
-const Name = styled.div``;
+const Name = styled.div`
+  margin-left: 10px;
+`;
 const Time = styled.div``;
 const Desc = styled.div``;
 const Post = ({ post }) => {
@@ -50,9 +54,12 @@ const Post = ({ post }) => {
       </LinkStyle>
       <UserInfo>
         <User>
-          {user.userimg ? (
+          {/* {user.userimg ? (
             <Img src={`http://localhost:5000/${user.userimg}`} alt="" />
-          ) : null}
+          ) : (
+            <Avatar />
+          )} */}
+          <Avatar />
 
           <Name>{post.author.username}</Name>
         </User>

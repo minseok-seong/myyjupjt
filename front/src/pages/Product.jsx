@@ -11,6 +11,7 @@ import { addProduct } from "../redux/cartRedux";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar, IconButton } from "@mui/material";
 import { mobile } from "../components/responsive";
+import swal from "sweetalert";
 
 const Container = styled.div``;
 
@@ -148,7 +149,7 @@ const Product = () => {
 
     try {
       if (!user?.uId) {
-        alert("로그인해주세요");
+        swal("로그인해주세요");
         return;
       }
       const res = await axios.get(
@@ -191,7 +192,22 @@ const Product = () => {
 
   const handleClick = () => {
     if (!user?.uId) {
-      alert("로그인해주세요");
+      swal({
+        title: "로그인 하러 가실래요?",
+        text: "로그인을 하시면 저희 서비스를 이용하실수 있어욥!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          swal("잘생각하셨어요 바로 로그인하러 고고용!", {
+            icon: "success",
+          });
+          navigate("/login");
+        } else {
+          swal("아쉽네요 다음엔 회원으로 만나요!");
+        }
+      });
       return;
     }
     dispatch(addProduct({ ...product, quantity, color, size }));
