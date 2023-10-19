@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { Avatar } from "@mui/material";
 
 const Message = () => {
   const [desc, setdesc] = useState("");
@@ -67,10 +68,11 @@ const Message = () => {
                         }
                         key={m._id}
                       >
-                        <img
+                        {/* <img
                           src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
                           alt=""
-                        />
+                        /> */}
+                        <Avatar />
                         <p>{m.desc}</p>
                       </div>
                     ))}
@@ -102,10 +104,11 @@ const Message = () => {
                         }
                         key={m._id}
                       >
-                        <img
+                        {/* <img
                           src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
                           alt=""
-                        />
+                        /> */}
+                        <Avatar />
                         <p>{m.desc}</p>
                       </div>
                     ))}

@@ -79,7 +79,7 @@ const Icon = styled.div`
 const Product = ({ item, no }) => {
   const [isAddLiker, setisAddLiker] = useState(false);
   const { username, uId } = useSelector((state) => state.user);
-  console.log(item);
+  console.log(isAddLiker);
 
   const handlelikers = async () => {
     if (!uId) {
