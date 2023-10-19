@@ -45,7 +45,7 @@ const ProductUpload = () => {
       const formData = new FormData();
       formData.append("file", e.target.files[0]);
       const res = await axios.post(
-        "http://localhost:5000/api/products/image/upload",
+        "http://13.124.27.126:5000/api/products/image/upload",
         formData
       );
       setimgsrc(res.data.filePath);
@@ -67,7 +67,7 @@ const ProductUpload = () => {
         userNum: user.userNum,
       };
       const res = await axios.post(
-        "http://localhost:5000/api/products/submit",
+        "http://13.124.27.126:5000/api/products/submit",
         body
       );
       if (res.data.success) {
@@ -98,7 +98,7 @@ const ProductUpload = () => {
         />
 
         <Input type="file" onChange={fileUpload} />
-        <Image src={`http://localhost:5000/${imgsrc}`} />
+        <Image src={`http://13.124.27.126:5000/${imgsrc}`} />
 
         <TextField
           style={{ marginTop: 20 }}

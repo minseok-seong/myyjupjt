@@ -75,7 +75,10 @@ const Community = () => {
       // more: more,
     };
     try {
-      const res = await axios.post("http://localhost:5000/api/post/list", body);
+      const res = await axios.post(
+        "http://13.124.27.126:5000/api/post/list",
+        body
+      );
       setpostList([...res.data.postList]);
       // setmore(more + res.data.postList.length);
     } catch (e) {

@@ -55,7 +55,7 @@ const Post = ({ post }) => {
       <UserInfo>
         <User>
           {/* {user.userimg ? (
-            <Img src={`http://localhost:5000/${user.userimg}`} alt="" />
+            <Img src={`http://13.124.27.126:5000/${user.userimg}`} alt="" />
           ) : (
             <Avatar />
           )} */}
